@@ -57,7 +57,37 @@ int main() {
 		}
 	}
 	
-	cout << "So nho nhat trong ma tran nam o vi tri: " << P[0] << ", "<< P[1] << endl;
+	cout << "So nho nhat trong ma tran nam o vi tri: " << P[0] + 1 << ", "<< P[1] + 1 << endl;
+
+	// Cho biết hàng nào có tổng lớn nhất
+	int max = 0;
+	short max_index = 0;
+	
+	for(int i = 0; i < n; i++) {
+		int total = 0;
+		
+		for (int v: A[i]) total += v;
+
+		if (total > max) {
+			max = total;
+			max_index = i;
+		}
+	}
+	cout << "Hang co tong lon nhat la: " << max_index + 1 << endl;
+
+	// Tính giá trị trung bình phần tử dương trong mảng
+	long int total_avg = 0;
+	short amount_avg = 0;
+	for(vector<int> r:A) {
+		for(int c:r) {
+			if (c > 0) {
+				total_avg += c;
+				amount_avg++;
+			}
+		}
+	}
+	double avg = total_avg / amount_avg;
+	cout << "Gia tri trung binh cua phan tu duong trong ma tran la: " << avg << endl;
 
 	return 0;
 }
